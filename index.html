@@ -97,28 +97,22 @@ var loadFile = function(event) {
 
 //var website = "https://3c63m3a9ci.execute-api.us-west-2.amazonaws.com/V1/cy3650-sample-project/" + event.target.files[0];
 var loadFile2 = function(event) {
-	var image = document.getElementById('output');
-	image.src = URL.createObjectURL(event.target.files[0]);	
-	var file = image.src;
-	let formData = new FormData();
-     
-	formData.append("photo", event.target.files[0]);
-	
-	
-	var website = "https://a2e3bqnihk.execute-api.us-west-2.amazonaws.com/v1/cy3650-sample-project/" + event.target.files[0].name;
-	var settings = {
-	  "url": website,
-	  "method": "PUT",
-	  "timeout": 0,
-	  "headers": {
-		"Content-Type": "image/jpeg"
-	  },
-	   "data": formData
-	};
+	var file_contents = event.target.files[0];
+	var website = "https://3c63m3a9ci.execute-api.us-west-2.amazonaws.com/V1/cy3650-sample-project/" + event.target.files[0].name;
+var settings = {
+  
+  "url": "https://3c63m3a9ci.execute-api.us-west-2.amazonaws.com/V1/cy3650-sample-project/boat.jpg",
+  "method": "PUT",
+  "timeout": 0,
+  "headers": {
+    "Content-Type": "image/jpeg"
+  },
+   "data": file_contents
+};
 
-	$.ajax(settings).done(function (event) {
-	  console.log(response);
-	});
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
 }
 </script>
 
